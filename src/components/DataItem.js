@@ -22,14 +22,14 @@ class DataItem extends React.Component {
         onPress={() =>
           this.props.navigation.navigate('Details', {value: this.props.value})
         }>
-        <Left>{/* <SvgUri width="40" height="40" uri={//photo} />*/}</Left>
+       {/* <Left> <SvgUri width="40" height="40" uri={//photo} /></Left>*/}
         <Body>
-          <Text style={{color: color}}>
+          <Text style={{color: color, fontSize:18}}>
             {name} - {symbol}
           </Text>
         </Body>
         <Right>
-          <Text style={{color: color}}>{price}</Text>
+          <Text style={{color: color, fontSize:16,marginRight:15}}>{price} $</Text>
         </Right>
       </ListItem>
     );

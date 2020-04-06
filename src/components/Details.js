@@ -14,7 +14,7 @@ export default function Details({route, navigation}) {
     <View style={{flex: 1, alignItems: 'center'}}>
       <SvgUri style={{marginTop: 20}} width="120" height="120" uri={iconUrl} />
       <H1 style={{marginTop: 15}}>{name}</H1>
-      <H2 style={{marginTop: 10, fontWeight: 'bold'}}>{pricetwo}</H2>
+      <H2 style={{marginTop: 10, fontWeight: 'bold'}}>{pricetwo} $</H2>
       <H3 style={{margin: 15}}>{description}</H3>
       <Text style={{marginTop: 15, color: '#808080'}}>Onur Salman</Text>
       <Text style={{marginTop: 5, color: '#808080'}}>

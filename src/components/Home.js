@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {
   Alert,
   View,
-  Text,
   FlatList,
-  Button,
   StyleSheet,
   ActivityIndicator,
 } from 'react-native';
+import {Button, Text, Icon} from 'native-base';
 
 import DataItem from '../components/DataItem';
 
@@ -60,25 +59,31 @@ export default function Home({navigation}) {
       {loading ? (
         <View style={styles.container}>
           <ActivityIndicator size="large" color="#ff6d00" animating={loading} />
-          <Text style={{marginTop:20, fontSize:20}}>Please Wait..</Text>
+          <Text style={{marginTop: 20, fontSize: 20}}>Please Wait..</Text>
         </View>
       ) : (
         <View>
           <FlatList
-            style={{marginBottom: 45}}
+            style={{marginBottom: 40}}
             keyExtractor={(item, index) => index.toString()}
             data={response.coins}
             renderItem={renderRow}
             ListFooterComponent={() => (loading ? <ActivityIndicator /> : null)}
           />
           <View style={styles.pagination}>
-            <Button color="#ff6d00" onPress={handleLoadBack} title="<" />
+            <Button transparent onPress={handleLoadBack} title="<">
+              <Icon
+                style={{fontSize: 30, color: '#ff6d00'}}
+                name="ios-arrow-back"
+              />
+            </Button>
             <Text style={styles.text}> {page / 10 + 1}</Text>
-            <Button
-              color="#ff6d00"
-              onPress={() => setpage(page + 10)}
-              title=">"
-            />
+            <Button transparent onPress={() => setpage(page + 10)}>
+              <Icon
+                style={{fontSize: 30, color: '#ff6d00'}}
+                name="ios-arrow-forward"
+              />
+            </Button>
           </View>
         </View>
       )}
@@ -97,16 +102,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    height: 45,
+    height: 40,
     position: 'absolute',
     bottom: 0,
     flexDirection: 'row',
+    margin: 0,
   },
   text: {
-    marginHorizontal: 20,
+    marginHorizontal: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 25,
+    fontSize: 30,
     color: '#ff6d00',
   },
 });
