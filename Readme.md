@@ -3,7 +3,7 @@
 
 ## How to use
 ### Clone
-- Clone this repo to your local machine using `https://github.com/onurrsalmann/coinviewer
+- Clone this repo to your local machine using `https://github.com/onurrsalmann/coinviewer`
 
 ### Install 
 ```
@@ -17,7 +17,7 @@ $ npm install
 # npx react-native run-android
 # Launch server
 
-$ node server
+$ npx react-native run-android
 ```
 
 ### Screenshots
