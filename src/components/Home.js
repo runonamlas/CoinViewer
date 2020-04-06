@@ -17,6 +17,7 @@ export default function Home({navigation}) {
   const [page, setpage] = useState(0);
 
   useEffect(() => {
+    setloading(true);
     getData();
   }, [page]);
 
@@ -48,41 +49,40 @@ export default function Home({navigation}) {
     return <DataItem value={item} navigation={navigation} />;
   };
 
-  const handleLoadMore = () => {
-    console.log('burda');
-    setpage(page + 10);
-    console.log(page);
-  };
-
   const handleLoadBack = () => {
     if (page >= 10) {
-      console.log('burda');
       setpage(page - 10);
-      console.log(page);
     }
   };
+
   return (
-    <View>
+    <>
       {loading ? (
-        <View>
-          <ActivityIndicator style={{marginTop: 50}} animating={loading} />
-          <Text style={{margin: 50, marginLeft: 140}}>Please Wait..</Text>
+        <View style={styles.container}>
+          <ActivityIndicator size="large" color="#ff6d00" animating={loading} />
+          <Text style={{marginTop:20, fontSize:20}}>Please Wait..</Text>
         </View>
       ) : (
-        <FlatList
-          style={{marginBottom: 45}}
-          keyExtractor={(item, index) => index.toString()}
-          data={response.coins}
-          renderItem={renderRow}
-          ListFooterComponent={() => (loading ? <ActivityIndicator /> : null)}
-        />
+        <View>
+          <FlatList
+            style={{marginBottom: 45}}
+            keyExtractor={(item, index) => index.toString()}
+            data={response.coins}
+            renderItem={renderRow}
+            ListFooterComponent={() => (loading ? <ActivityIndicator /> : null)}
+          />
+          <View style={styles.pagination}>
+            <Button color="#ff6d00" onPress={handleLoadBack} title="<" />
+            <Text style={styles.text}> {page / 10 + 1}</Text>
+            <Button
+              color="#ff6d00"
+              onPress={() => setpage(page + 10)}
+              title=">"
+            />
+          </View>
+        </View>
       )}
-      <View style={styles.pagination}>
-        <Button color="#ff6d00" onPress={handleLoadBack} title="<" />
-        <Text style={styles.text}> {page / 10 + 1}</Text>
-        <Button color="#ff6d00" onPress={handleLoadMore} title=">" />
-      </View>
-    </View>
+    </>
   );
 }
 const styles = StyleSheet.create({

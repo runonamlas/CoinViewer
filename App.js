@@ -1,13 +1,11 @@
 import React from 'react';
 import Home from './src/components/Home';
 import Details from './src/components/Details';
-import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
 import 'react-native-gesture-handler';
 
+const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
