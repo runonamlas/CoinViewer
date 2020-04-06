@@ -4,6 +4,12 @@
 ## How to use
 ### Clone
 - Clone this repo to your local machine using `https://github.com/onurrsalmann/coinviewer`
+- Apk location : 
+```
+# Apk Location
+
+$ android/app/outputs/apk/release/app-release.apk
+```
 
 ### Install 
 ```
